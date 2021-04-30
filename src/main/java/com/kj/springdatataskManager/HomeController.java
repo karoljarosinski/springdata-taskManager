@@ -39,8 +39,9 @@ public class HomeController {
     }
 
     @PostMapping("/done/{id}")
-    public String done(@PathVariable Long id, Task task) {
+    public String done(@PathVariable Long id) {
         taskRepository.markAsComplete(id);
         return "redirect:/";
     }
+
 }
