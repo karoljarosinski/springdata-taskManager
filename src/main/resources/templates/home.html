@@ -8,20 +8,18 @@
 <h1>Manager zadan</h1>
 <a href="/?status=ACTIVE">Wyswietl aktywne zadania</a>
 <a href="/?status=DONE">Wyswietl zrobione</a>
-<form th:action="@{/add}" method="post" th:object = ${task}>
-    <input type="text" th:field = "*{taskName}">
+<form th:action="@{/add}" method="post" th:object=${task}>
+    <input type="text" th:field="*{taskName}">
     <input type="submit" value="Dodaj">
 </form>
 <ul>
-    <li th:each ="task: ${tasks}">
-        <p th:text = "| ${task.taskName}, ${task.status.Description}|"></p>
-        <form th:action="@{/done}" method="post" th:object = ${task}>
-            <input type="submit" value="Zrobione">
+    <li th:each="task: ${tasks}">
+        <p th:text="| ${task.taskName}, ${task.status.description}|"></p>
+        <form th:action="|/done/${task.id}|" method="post" th:object = ${task}>
+            <button type="submit">Zrobione</button>
         </form>
     </li>
-
 </ul>
-
 
 </body>
 </html>
