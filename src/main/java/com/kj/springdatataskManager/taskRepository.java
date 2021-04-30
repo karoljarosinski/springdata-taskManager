@@ -10,9 +10,10 @@ import java.util.List;
 
 public interface taskRepository extends JpaRepository<Task, Long> {
 
+    @Query("SELECT t FROM Task t where t.status = :status ORDER BY t.deadline ASC")
     List<Task> findByStatus(Status status);
 
-    List<Task> findByCategory(Category category);
+    List<Task> findByOrderByDeadlineAsc();
 
     @Transactional
     @Modifying

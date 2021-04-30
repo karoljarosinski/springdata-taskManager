@@ -25,7 +25,7 @@ public class HomeController {
         if (status != null) {
             tasks = taskRepository.findByStatus(status);
         } else {
-            tasks = taskRepository.findAll();
+            tasks = taskRepository.findByOrderByDeadlineAsc();
         }
         model.addAttribute("tasks", tasks);
         return "home";
