@@ -6,23 +6,35 @@
 </head>
 <body>
 <h1>Manager zadan</h1>
-<a href="/?status=ACTIVE">Wyswietl aktywne zadania</a>
-<a href="/?status=DONE">Wyswietl zrobione</a>
-<form th:action="@{/add}" method="post" th:object=${task}>
-    <input type="text" th:field="*{taskName}">
-    <input type="submit" value="Dodaj">
-</form>
-<ul>
-    <li th:each="task: ${tasks}">
-        <p th:text="| ${task.taskName}, ${task.status.description}|"></p>
-        <form th:action="|/done/${task.id}|" method="post" th:object = ${task}>
-            <button type="submit">Zrobione</button>
-        </form>
-        <form th:action="|/edit/${task.id}|" method="get">
-            <button type="submit">Edytuj</button>
-        </form>
-    </li>
-</ul>
+
+
+    <a href="/?status=ACTIVE">Wyswietl aktywne zadania</a>
+    <a href="/?status=DONE">Wyswietl zrobione</a>
+
+    <form th:action="@{/add}" method="post" th:object=${task}>
+        <label for="taskName">Nazwa taska</label>
+        <input type="text" th:field="*{taskName}" id="taskName">
+        <label for="category">Kategoria</label>
+        <select th:field="*{category}" id="category">
+            <option value="HOMEWORK">zadanie domowe</option>
+            <option value="CLEANING">sprzątanie</option>
+            <option value="SHOPPING">zakupy</option>
+            <option value="OTHER">inne</option>
+        </select>
+        <input type="submit" value="Dodaj">
+    </form>
+
+    <ul>
+        <li th:each="task: ${tasks}">
+                <p th:text="|${task.taskName}, ${task.status.description}, ${task.category.description}|"></p>
+                <form th:action="|/done/${task.id}|" method="post" th:object=${task}>
+                    <button type="submit">Zrobione</button>
+                </form>
+            <form th:action="|/edit/${task.id}|" method="get">
+                <button type="submit">Edytuj</button>
+            </form>
+        </li>
+    </ul>
 
 </body>
 </html>

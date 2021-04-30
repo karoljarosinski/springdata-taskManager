@@ -12,6 +12,8 @@ public interface taskRepository extends JpaRepository<Task, Long> {
 
     List<Task> findByStatus(Status status);
 
+    List<Task> findByCategory(Category category);
+
     @Transactional
     @Modifying
     @Query("update Task t set t.status = 'DONE' where t.id = :id")

@@ -1,7 +1,7 @@
 INSERT INTO TASK
-(TASK_NAME, STATUS)
+(TASK_NAME, STATUS, CATEGORY)
  VALUES
- ('Zakupy', 'ACTIVE'),
- ('Oplaty', 'ACTIVE'),
- ('Posprzatac', 'DONE'),
- ('Zadzwonic', 'ACTIVE');
+ ('Zakupy', 'ACTIVE', 'SHOPPING'),
+ ('Oplaty', 'ACTIVE', 'EXPENSES'),
+ ('Posprzatac', 'DONE', 'OTHER'),
+ ('Zadzwonic', 'ACTIVE', 'OTHER');
