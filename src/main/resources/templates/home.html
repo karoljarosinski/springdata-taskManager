@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona domowa</title>
+</head>
+<body>
+<h1>Manager zadan</h1>
+<a href="/?status=ACTIVE">Wyswietl aktywne zadania</a>
+<a href="/?status=DONE">Wyswietl zrobione</a>
+<form th:action="@{/add}" method="post" th:object = ${task}>
+    <input type="text" th:field = "*{taskName}">
+    <input type="submit" value="Dodaj">
+</form>
+<ul>
+    <li th:each ="task: ${tasks}">
+        <p th:text = "| ${task.taskName}, ${task.status.Description}|"></p>
+        <form th:action="@{/done}" method="post" th:object = ${task}>
+            <input type="submit" value="Zrobione">
+        </form>
+    </li>
+
+</ul>
+
+
+</body>
+</html>
