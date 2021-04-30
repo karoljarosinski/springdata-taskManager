@@ -44,4 +44,19 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Long id, Model model) {
+        Task task = taskRepository.findById(id).get();
+        model.addAttribute("taskToEdit", task);
+        return "edit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String edit(@PathVariable Long id, Task task) {
+        Task task1 = taskRepository.findById(id).orElseThrow();
+        task1.setTaskName(task.getTaskName());
+        task1.setStatus(task.getStatus());
+        taskRepository.save(task1);
+        return "redirect:/";
+    }
 }

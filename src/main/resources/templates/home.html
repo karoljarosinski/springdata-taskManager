@@ -18,6 +18,9 @@
         <form th:action="|/done/${task.id}|" method="post" th:object = ${task}>
             <button type="submit">Zrobione</button>
         </form>
+        <form th:action="|/edit/${task.id}|" method="get">
+            <button type="submit">Edytuj</button>
+        </form>
     </li>
 </ul>
 

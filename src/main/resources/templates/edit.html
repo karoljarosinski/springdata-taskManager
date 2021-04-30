@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edytuj task</title>
+</head>
+<body>
+<h1>edytuj task</h1>
+<form th:action="|/edit/${taskToEdit.id}" method="post" th:object = ${taskToEdit}>
+    <input type="text" th:field = "*{taskName}">
+    <select th:field = "*{status}">
+        <option value="ACTIVE">Aktywne</option>
+        <option value="DONE">Zrobione</option>
+        <input type="submit" value="Edytuj">
+    </select>
+</form>
+
+</body>
+</html>
