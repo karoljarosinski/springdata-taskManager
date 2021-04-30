@@ -1,7 +1,7 @@
 INSERT INTO TASK
-(TASK_NAME, STATUS, CATEGORY)
+(TASK_NAME, STATUS, CATEGORY, DEADLINE)
  VALUES
- ('Zakupy', 'ACTIVE', 'SHOPPING'),
- ('Oplaty', 'ACTIVE', 'EXPENSES'),
- ('Posprzatac', 'DONE', 'OTHER'),
- ('Zadzwonic', 'ACTIVE', 'OTHER');
+ ('Zakupy', 'ACTIVE', 'SHOPPING', '2021-05-05'),
+ ('Oplaty', 'ACTIVE', 'EXPENSES', '2021-05-03'),
+ ('Posprzatac', 'DONE', 'OTHER', '2021-06-15'),
+ ('Zadzwonic', 'ACTIVE', 'OTHER', '2021-09-05');

@@ -1,6 +1,9 @@
 package com.kj.springdatataskManager;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class Task {
@@ -13,6 +16,17 @@ public class Task {
     private Status status;
     @Enumerated(EnumType.STRING)
     private Category category;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate deadline;
+
+
+    public LocalDate getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(LocalDate deadline) {
+        this.deadline = deadline;
+    }
 
     public Category getCategory() {
         return category;

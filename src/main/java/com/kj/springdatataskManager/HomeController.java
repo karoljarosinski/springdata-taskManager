@@ -56,6 +56,8 @@ public class HomeController {
         Task task1 = taskRepository.findById(id).orElseThrow();
         task1.setTaskName(task.getTaskName());
         task1.setStatus(task.getStatus());
+        task1.setCategory(task.getCategory());
+        task1.setDeadline(task.getDeadline());
         taskRepository.save(task1);
         return "redirect:/";
     }

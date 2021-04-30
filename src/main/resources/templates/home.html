@@ -21,12 +21,14 @@
             <option value="SHOPPING">zakupy</option>
             <option value="OTHER">inne</option>
         </select>
+        <label for="deadline">Termin</label>
+        <input type="date" th:field = "*{deadline}" id="deadline">
         <input type="submit" value="Dodaj">
     </form>
 
     <ul>
         <li th:each="task: ${tasks}">
-                <p th:text="|${task.taskName}, ${task.status.description}, ${task.category.description}|"></p>
+                <p th:text="|${task.taskName}, ${task.status.description}, ${task.category.description}, ${task.deadline}|"></p>
                 <form th:action="|/done/${task.id}|" method="post" th:object=${task}>
                     <button type="submit">Zrobione</button>
                 </form>
